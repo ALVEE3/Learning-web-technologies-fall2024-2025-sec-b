@@ -1,0 +1,20 @@
+<admissions>
+<admission>
+  <SL_NO>23</SL_NO>
+  <FIRST_NAME>John</FIRST_NAME>
+   <LAST_NAME>Carter</LAST_NAME>
+  <ADMISSION_DATE>25/12/2015</ADMISSION_DATE>
+</admission>
+<admission>
+  <SL_NO>29</SL_NO>
+  <FIRST_NAME>Bob</FIRST_NAME>
+  <LAST_NAME>Marshal</LAST_NAME>
+  <ADMISSION_DATE>13/01/1999</ADMISSION_DATE>
+</admission>
+<admission>
+  <SL_NO>35</SL_NO>
+  <FIRST_NAME>Clark</FIRST_NAME>
+  <LAST_NMAE>Kent</LAST_NMAE>
+  <ADMISSION_DATE>17/06/2005</ADMISSION_DATE>
+</admission>
+</admissions>
