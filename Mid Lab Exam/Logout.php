@@ -1,9 +1,8 @@
 <?php
+session_start();
+session_unset();
+session_destroy();
 
-    session_start();
-    unset($_SESSION['xyz']);
-    session_destroy();
-
-    header('location: login.html');
-
+header("Location: login.html");
+exit();
 ?>

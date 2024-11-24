@@ -1,12 +1,18 @@
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Login</title>
 </head>
 <body>
-        <form method="post" action="logincheck.php" enctype="">
-            Username: <input type="text" required name="username" value="" /> <br>
-            Password: <input type="password" name="password" value="" /> <br>
-            <input type="submit" name="submit" value="Submit" />
-        </form>
+    <h2>Login</h2>
+    <form action="logincheck.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a>.</p>
 </body>
 </html>

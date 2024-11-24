@@ -1,23 +1,21 @@
 <?php
-    session_start();
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if(isset($_POST['submit'])){
- 
-        $username = ($_POST['username']);
-        $password = ($_POST['password']);
-
-
-        if($username == null || empty($password)){
-            echo "Null username/password";
-        }else if($username == $password){
-            echo "valid user!";
-
-            $_SESSION['xyz'] = true;
-            header('location: home.php');
-        }else{
-            echo "Invalid user!";
+    if (isset($_SESSION['user_data']) && $_SESSION['user_data']['username'] === $username) {
+        if (password_verify($password, $_SESSION['user_data']['password'])) {
+            $_SESSION['logged_in'] = true;
+            header("Location: home.php");
+            exit();
+        } else {
+            echo "Invalid password.";
         }
-    }else{
-        header('location: login.html');
+    } else {
+        echo "User not found.";
     }
+} else {
+    echo "Invalid request.";
+}
 ?>

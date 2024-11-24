@@ -1,27 +1,20 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['xyz'])) {
-    header('location: login.html');
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.html");
     exit();
 }
 
-// Display user information from session
-if (isset($_SESSION['registered_user'])) {
-    $username = $_SESSION['registered_user']['username'];
-} else {
-    $username = "Guest";
-}
+$user_data = $_SESSION['user_data'];
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Welcome, <?php echo $username; ?>!</h1>
-    <p>This is your profile page.</p>
-
-    <a href="logout.php">Logout</a>
+    <h2>Welcome, <?php echo htmlspecialchars($user_data['username']); ?>!</h2>
+    <p>Email: <?php echo htmlspecialchars($user_data['email']); ?></p>
+    <p><a href="logout.php">Logout</a></p>
 </body>
 </html>

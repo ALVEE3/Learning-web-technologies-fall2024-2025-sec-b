@@ -1,25 +1,19 @@
 <?php
 session_start();
-
-if (isset($_POST['submit'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    if (empty($username) || empty($password) || empty($confirmpassword)) {
-        echo "All fields are required!";
-    } else if ($password !== $confirmpassword) {
-        echo "Passwords do not match!";
-    } else {
-        $_SESSION['registered_user'] = [
-            'username' => $username,
-            'password' => $password 
-        ];
+    $_SESSION['user_data'] = [
+        'username' => $username,
+        'email' => $email,
+        'password' => $password
+    ];
 
-        echo "Registration successful!";
-        header('location: login.html');
-    }
+    header("Location: login.html");
+    exit();
 } else {
-    header('location: register.html');
+    echo "Invalid request.";
 }
 ?>
