@@ -11,15 +11,15 @@ if ($conn->connect_error) {
 }
 
 // Get data from POST
-$name = $_POST['name'];
-$username = $_POST['username'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$adminName = $_POST['adminName'];
+$adminUsername = $_POST['adminUsername'];
+$adminPassword = password_hash($_POST['adminPassword'], PASSWORD_DEFAULT);
 
-// Insert into employees table
-$sql = "INSERT INTO employees (name, username, password) VALUES ('$name', '$username', '$password')";
+// Insert into admins table
+$sql = "INSERT INTO admins (name, username, password) VALUES ('$adminName', '$adminUsername', '$adminPassword')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New employee registered successfully!";
+    echo "New admin registered successfully!";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
